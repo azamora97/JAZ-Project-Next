@@ -1,26 +1,300 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #f2f2f2;
+  --text: #111827;
+  --header-bg: #3a547e;
+  --header-text: #ffffff;
+  --card-bg: #fcfafa;
+  --card-text: #2c5699;
+  --card-border: #3a547e;
+  --column-bg: #e8e8e8;
+  --column-title: #78797a;
+  --modal-bg: #ffffff;
+  --overlay: rgba(0, 0, 0, 0.4);
+  --button-primary: #2563eb;
+  --button-danger: #dc2626;
+  --button-secondary: #e5e7eb;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* DARK THEME */
+.dark {
+  --bg: #0f172a;
+  --text: #e5e7eb;
+  --header-bg: #1e293b;
+  --header-text: #f8fafc;
+  --card-bg: #1e293b;
+  --card-text: #e2e8f0;
+  --card-border: #3b82f6;
+  --column-bg: #111827;
+  --column-title: #334155;
+  --modal-bg: #1e293b;
+  --overlay: rgba(0, 0, 0, 0.7);
+  --button-primary: #3b82f6;
+  --button-danger: #ef4444;
+  --button-secondary: #374151;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.content {
+  min-width: 100vh;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.header {
+  height: 60px;
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  font-size: 20px;
+  padding: 10px 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.header p { 
+  text-align: center;
+}
+
+.header-auth {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.main {
+  width: 90%;
+  margin: auto;
+  padding: 30px 20px 20px;
+}
+
+.ProjectsTitle {
+  margin: 20px auto 40px;
+  text-align: center;
+  font-size: 25px;
+}
+
+.CardContainer {
+  margin: 10px auto 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.subTitle {
+  font-size: 18px;
+  font-size: bold;
+  margin-bottom: 3px;
+}
+
+.text {
+  font-size: 14px;
+}
+
+.projectCard {
+  width: 100%;
+  background: var(--card-bg);
+  color: var(--card-text);
+  padding: 10px 12px;
+  border-radius: 4px;
+  margin: 20px auto;
+  border-left: 4px solid var(--card-border);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.Card-content_Justify {
+  margin: 15px auto 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.board {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.Columns {
+  width: 100%;
+  background: var(--column-bg);
+  padding: 20px;
+  border-radius: 4px;  
+}
+
+.columnTitle {
+  background: var(--column-title);
+  margin: 10px 0;
+  padding: 20px;
+  border-radius: 4px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.button {
+  font-size: 12px;
+  padding: 5px 2rem;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.primary {
+  background-color: var(--button-primary);
+  color: white;
+}
+
+.danger {
+  background-color: var(--button-danger);
+  color: white;
+}
+
+.secondary {
+ background-color: var(--button-secondary);
+  color: var(--text);
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.header-auth button {
+  max-width: 100px;
+  transition: all 0.2s ease;
+}
+
+.floatingButton {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #2563eb;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.floatingButton:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.25);
+  background-color: #1d4ed8;
+}
+
+/* Overlay + centrado */
+.modal-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+/* Fondo oscuro */
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--overlay);
+  backdrop-filter: blur(4px);
+}
+
+/* Caja del modal */
+.modal-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 600px;
+  background: var(--modal-bg);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Header */
+.modal-header {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #111827;
+}
+
+/* Body */
+.modal-body {
+  font-size: 14px;
+  color: #4b5563;
+  margin-bottom: 16px;
+}
+
+/* Footer */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+/* Cursor clickable */
+.modal-trigger,
+.modal-close {
+  cursor: pointer;
+}
+
+.modal-content {
+  animation: modalIn 0.2s ease-out;
+}
+
+@keyframes modalIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.error-text {
+  margin-top: 3px;
+  color: red;
+}
+
+.skeleton-card {
+  width: 100%;
+  height: 120px;
+  margin: 10px 0;
+  background: linear-gradient(90deg, #eee 25%, #ddd 50%, #eee 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
