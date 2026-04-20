@@ -11,4 +11,5 @@ Proyecto curso de React Avanzado
 4. Correr el proyecto:
    npm run dev
 5. Abrir en el navegador la URL que se muestra en la consola:
-   Se mostrar una URL similar a la sguiente: http://localhost:3000/
+   Se mostrar una URL similar a la siguiente: http://localhost:3000/
+   Se debe especificar la ruta a la pagina: projects -> http://localhost:3000/projects

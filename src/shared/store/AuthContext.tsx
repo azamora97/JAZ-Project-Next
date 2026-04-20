@@ -1,5 +1,5 @@
+// ✅ Client Component — Se utilizan el context y useReducer
 "use client";
-
 import { createContext, useReducer, type ReactNode } from "react";
 import { AuthReducer } from "../hooks/AuthReducer";
 

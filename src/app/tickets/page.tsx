@@ -1,3 +1,4 @@
+// ✅ Client Component — se usa el useRouter
 "use client";
 import { TicketsListContainer } from "@/features/tickets/components/TicketsListContainer";
 import { useSearchParams } from "next/navigation";

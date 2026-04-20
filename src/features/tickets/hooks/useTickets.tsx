@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useReducer, useState, useRef } from "react";
 import { Board, Tickets_STATUSES, Tickets } from "../interface";
 import { TicketsMockData } from "../utils/mockData";
 import { ticketReducer } from "./ticketReducir";
@@ -11,15 +11,21 @@ const boardInit: Board[] = [
 ];
 
 export const useTickets = () => {
-  //const [tickets, setTickets] = useState<Tickets[]>([]);
   const [tickets, dispatch] = useReducer(ticketReducer, []);
   const [board] = useState<Board[]>(boardInit);
+  const abortControllerRef = useRef<AbortController | null>(null);
 
   useEffect(() => {
+    abortControllerRef.current = new AbortController();
     dispatch({
       type: "LOAD_TICKET",
       payload: TicketsMockData,
     });
+    return () => {
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
+    };
   }, []);
 
   const handleAddTicket = (newTicket: Tickets) => {
