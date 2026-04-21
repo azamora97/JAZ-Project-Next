@@ -1,6 +1,6 @@
 // ✅ Client Component — Se utilizan hook
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useProjectsManager } from "../hooks/useProjectsManager";
 import { ProjectsListPresentation } from "./ProjectsListPresentation";
 import { ProjectDataMock } from "../utils/mockData";
@@ -28,12 +28,15 @@ export const ProjectsListContainer = ({ handleSelectProject }: Props) => {
     };
   }, []);
 
+  // useCallback to memoize addProject handler
+  const memoizedAddProject = useCallback(addProject, [addProject]);
+
   if (isLoading) return <Loading />;
 
   return (
     <ProjectsListPresentation
       listProjects={projects}
-      handleAddProject={addProject}
+      handleAddProject={memoizedAddProject}
       handleSelectProject={handleSelectProject}
     />
   );

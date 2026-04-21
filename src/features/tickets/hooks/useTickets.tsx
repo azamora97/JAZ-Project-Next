@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useReducer, useState, useRef } from "react";
+import { useEffect, useReducer, useState, useRef, useCallback } from "react";
 import { Board, Tickets_STATUSES, Tickets } from "../interface";
 import { TicketsMockData } from "../utils/mockData";
 import { ticketReducer } from "./ticketReducir";
@@ -28,13 +28,13 @@ export const useTickets = () => {
     };
   }, []);
 
-  const handleAddTicket = (newTicket: Tickets) => {
+  const handleAddTicket = useCallback((newTicket: Tickets) => {
     dispatch({ type: "ADD_TICKET", payload: newTicket });
-  };
+  }, []);
 
-  const handleChangeStatus = (ticket: Tickets) => {
+  const handleChangeStatus = useCallback((ticket: Tickets) => {
     dispatch({ type: "CHANGE_STATUS", payload: ticket });
-  };
+  }, []);
 
   return {
     listTickets: tickets,

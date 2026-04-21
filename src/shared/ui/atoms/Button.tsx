@@ -1,3 +1,7 @@
+// ✅ Client Component — se agerega el memo
+"use client";
+import React from "react";
+
 // ✅ Server Component — solo renderiza HTML
 interface PropsButton {
   children: React.ReactNode;
@@ -6,15 +10,12 @@ interface PropsButton {
   onClick?: () => void;
 }
 
-export const Button = ({
-  children,
-  className,
-  type = "button",
-  onClick,
-}: PropsButton) => {
-  return (
-    <button className={className} onClick={onClick} type={type}>
-      {children}
-    </button>
-  );
-};
+export const Button = React.memo(
+  ({ children, className, type = "button", onClick }: PropsButton) => {
+    return (
+      <button className={className} onClick={onClick} type={type}>
+        {children}
+      </button>
+    );
+  },
+);

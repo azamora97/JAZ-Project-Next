@@ -1,8 +1,8 @@
 // ✅ Client Component — se usa el useRouter
 "use client";
 import { AppProvider, Layout } from "@/shared";
-import Tabs from "@/shared/components/Tabs";
 import "./globals.css";
+import Tabs from "@/shared/components/Tabs";
 
 export default function RootLayout({
   children,
@@ -17,7 +17,8 @@ export default function RootLayout({
             <Tabs>
               <Tabs.List>
                 <Tabs.Tab href="/projects">Proyectos</Tabs.Tab>
-                <Tabs.Tab href="/tickets">Todos los Tiquetes</Tabs.Tab>
+                <Tabs.Tab href="/tickets">Tiquetes</Tabs.Tab>
+                <Tabs.Tab href="/about">Acerca de</Tabs.Tab>
               </Tabs.List>
             </Tabs>
 

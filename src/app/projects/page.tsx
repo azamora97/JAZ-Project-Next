@@ -2,13 +2,17 @@
 "use client";
 import { ProjectsListContainer } from "@/features/projects";
 import { useRouter } from "next/navigation";
+import { useCallback } from "react";
 
 export default function page() {
   const router = useRouter();
 
-  const handleSelectProject = (id: string) => {
-    router.push(`/tickets?projectId=${id}`);
-  };
+  const handleSelectProject = useCallback(
+    (id: string) => {
+      router.push(`/tickets?projectId=${id}`);
+    },
+    [router],
+  );
 
   return <ProjectsListContainer handleSelectProject={handleSelectProject} />;
 }
