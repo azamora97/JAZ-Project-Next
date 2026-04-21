@@ -4,7 +4,7 @@ import { ProjectsListContainer } from "@/features/projects";
 import { useRouter } from "next/navigation";
 import { useCallback } from "react";
 
-export default function page() {
+export default function Page() {
   const router = useRouter();
 
   const handleSelectProject = useCallback(

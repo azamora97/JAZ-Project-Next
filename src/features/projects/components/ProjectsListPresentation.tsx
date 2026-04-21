@@ -15,11 +15,11 @@ interface PropsListPresentation {
 }
 
 export const ProjectsListPresentation = React.memo(
-  ({
+  function ProjectsListPresentation({
     listProjects,
     handleAddProject,
     handleSelectProject,
-  }: PropsListPresentation) => {
+  }: PropsListPresentation) {
     const { values, errors, touched, handleChange, handleBlur, handleSubmit } =
       useAddProjetForm();
 

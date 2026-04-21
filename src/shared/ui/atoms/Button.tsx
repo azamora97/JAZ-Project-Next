@@ -10,12 +10,15 @@ interface PropsButton {
   onClick?: () => void;
 }
 
-export const Button = React.memo(
-  ({ children, className, type = "button", onClick }: PropsButton) => {
-    return (
-      <button className={className} onClick={onClick} type={type}>
-        {children}
-      </button>
-    );
-  },
-);
+export const Button = React.memo(function Button({
+  children,
+  className,
+  type = "button",
+  onClick,
+}: PropsButton) {
+  return (
+    <button className={className} onClick={onClick} type={type}>
+      {children}
+    </button>
+  );
+});

@@ -22,7 +22,7 @@ describe("useAddProjetForm", () => {
         act(() => {
             result.current.handleChange({
                 target: { name: "name", value: "Proyecto X" },
-            } as any);
+            } as React.ChangeEvent<HTMLInputElement>);
         });
 
         expect(result.current.values.name).toBe("Proyecto X");
@@ -34,7 +34,7 @@ describe("useAddProjetForm", () => {
         act(() => {
             result.current.handleBlur({
                 target: { name: "name" },
-            } as any);
+            } as React.ChangeEvent<HTMLInputElement>);
         });
 
         expect(result.current.touched.name).toBe(true);
@@ -61,11 +61,11 @@ describe("useAddProjetForm", () => {
         act(() => {
             result.current.handleChange({
                 target: { name: "name", value: "Proyecto" },
-            } as any);
+            } as React.ChangeEvent<HTMLInputElement>);
 
             result.current.handleChange({
                 target: { name: "description", value: "Desc" },
-            } as any);
+            } as React.ChangeEvent<HTMLInputElement>);
         });
 
         await act(async () => {

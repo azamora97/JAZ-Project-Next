@@ -26,23 +26,25 @@ const priorityStyle: Record<BadgeVariant, React.CSSProperties> = {
 };
 
 // ✅ Server Component — solo renderiza HTML
-export const Badge = React.memo(
-  ({ children, className = "", priority }: PropsBadge) => {
-    return (
-      <span
-        className={className}
-        style={{
-          display: "inline-block",
-          padding: "4px 8px",
-          borderRadius: "999px",
-          fontSize: "12px",
-          fontWeight: 500,
-          ...priorityStyle[priority],
-          color: "white",
-        }}
-      >
-        {children}
-      </span>
-    );
-  },
-);
+export const Badge = React.memo(function Badge({
+  children,
+  className = "",
+  priority,
+}: PropsBadge) {
+  return (
+    <span
+      className={className}
+      style={{
+        display: "inline-block",
+        padding: "4px 8px",
+        borderRadius: "999px",
+        fontSize: "12px",
+        fontWeight: 500,
+        ...priorityStyle[priority],
+        color: "white",
+      }}
+    >
+      {children}
+    </span>
+  );
+});

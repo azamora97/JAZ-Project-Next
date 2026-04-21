@@ -313,7 +313,6 @@ body {
   background-color: #1d4ed8;
 }
 
-/* Overlay + centrado */
 .modal-wrapper {
   position: fixed;
   inset: 0;
@@ -324,7 +323,6 @@ body {
   padding: 16px;
 }
 
-/* Fondo oscuro */
 .modal-overlay {
   position: absolute;
   inset: 0;
@@ -332,7 +330,6 @@ body {
   backdrop-filter: blur(4px);
 }
 
-/* Caja del modal */
 .modal-content {
   position: relative;
   z-index: 10;
@@ -346,7 +343,6 @@ body {
   transition: all 0.3s ease;
 }
 
-/* Header */
 .modal-header {
   font-size: 18px;
   font-weight: 600;
@@ -354,14 +350,12 @@ body {
   color: #111827;
 }
 
-/* Body */
 .modal-body {
   font-size: 14px;
   color: #4b5563;
   margin-bottom: 16px;
 }
 
-/* Footer */
 .modal-footer {
   display: flex;
   justify-content: flex-end;
@@ -369,7 +363,6 @@ body {
   margin-top: 16px;
 }
 
-/* Cursor clickable */
 .modal-trigger,
 .modal-close {
   cursor: pointer;

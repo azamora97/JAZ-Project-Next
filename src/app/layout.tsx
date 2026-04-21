@@ -21,7 +21,6 @@ export default function RootLayout({
                 <Tabs.Tab href="/about">Acerca de</Tabs.Tab>
               </Tabs.List>
             </Tabs>
-
             {children}
           </Layout>
         </AppProvider>
