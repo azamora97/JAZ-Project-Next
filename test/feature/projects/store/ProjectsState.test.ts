@@ -2,6 +2,7 @@ import "@testing-library/jest-dom";
 import { describe, it, expect, beforeEach } from "vitest";
 import { useProjectsStore } from "@/features/projects/store/ProjectsState";
 import { Project } from "@/features/projects/interface";
+import { ProjectDataMock } from "@/features/projects/utils/mockData";
 
 describe("useProjectsStore", () => {
     beforeEach(() => {
@@ -16,28 +17,12 @@ describe("useProjectsStore", () => {
     });
 
     it("setProjects actualiza la lista de proyectos", () => {
-        const mockProjects: Project[] = [
-            {
-                id: '1',
-                name: "Sistema de Gestión",
-                description: "Proyecto para gestionar tickets internos",
-                totalTickets: 25,
-                status: "active"
-            },
-            {
-                id: '2',
-                name: "App Mobile",
-                description: "Aplicación móvil para clientes",
-                totalTickets: 40,
-                status: "active"
-            },
-        ];
 
-        useProjectsStore.getState().setProjects(mockProjects);
+        useProjectsStore.getState().setProjects();
 
         const state = useProjectsStore.getState();
 
-        expect(state.projects).toEqual(mockProjects);
+        expect(state.projects).toEqual(ProjectDataMock);
     });
 
     it("addProject agrega un nuevo proyecto", () => {

@@ -1,4 +1,5 @@
 export const Tickets_STATUSES = {
+    BACKLOG: "BACKLOG",
     TODO: "TODO",
     IN_PROGRESS: "IN-PROGRESS",
     DONE: "DONE",
@@ -15,12 +16,14 @@ export const CARD_STYLE = {
     PROGRESS: Tickets_STATUSES.IN_PROGRESS,
     DEFAULT: "default",
     PRIMARY: "primary",
-    DONE: Tickets_STATUSES.DONE
+    DONE: Tickets_STATUSES.DONE,
+    BACKLOG: Tickets_STATUSES.BACKLOG
 } as const;
 
 export type Ticketstatus = (typeof Tickets_STATUSES)[keyof typeof Tickets_STATUSES];
 export type TicketsPriority =
     (typeof Tickets_PRIORITIES)[keyof typeof Tickets_PRIORITIES];
+export type TaskFilter = "all" | Ticketstatus;
 
 export type CardStyle =
     (typeof CARD_STYLE)[keyof typeof CARD_STYLE];

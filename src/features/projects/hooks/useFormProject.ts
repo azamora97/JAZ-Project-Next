@@ -1,4 +1,5 @@
-'use client'; /*Debido a que se utiliza useState*/
+// ✅ Client Component — usa hooks
+'use client';
 
 import { useState } from "react";
 

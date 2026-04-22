@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { useProjectsManager } from "../hooks/useProjectsManager";
 import { ProjectsListPresentation } from "./ProjectsListPresentation";
-import { ProjectDataMock } from "../utils/mockData";
 import Loading from "./loading";
 
 interface Props {
@@ -15,7 +14,7 @@ export const ProjectsListContainer = ({ handleSelectProject }: Props) => {
   const { projects, setProjects, addProject } = useProjectsManager();
 
   useEffect(() => {
-    setProjects(ProjectDataMock);
+    setProjects();
   }, [setProjects]);
 
   useEffect(() => {

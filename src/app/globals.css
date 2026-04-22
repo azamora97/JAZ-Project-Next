@@ -234,8 +234,9 @@ body {
 .board {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 20px;
+  margin-top: 30px;
 }
 
 .Columns {
@@ -405,4 +406,8 @@ body {
   100% {
     background-position: 200% 0;
   }
+}
+
+.btn-filter {
+  padding: 6px 12px;
 }

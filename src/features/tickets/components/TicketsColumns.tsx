@@ -1,6 +1,6 @@
 // ✅ Client Component — Se agrega el memo
 "use client";
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { Card } from "@/shared/ui/molecules/Card";
 import type { Tickets } from "../interface";
 import { getTicketsByStatus } from "../utils/getTicketsByStatus";

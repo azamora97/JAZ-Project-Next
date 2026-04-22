@@ -1,3 +1,6 @@
+// ✅ Client Component — usa hooks
+'use client';
+
 import { useContext } from "react";
 import { ThemeContext } from "../store/ThemeContext";
 

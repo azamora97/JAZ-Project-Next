@@ -77,7 +77,7 @@ export const TicketsMockData: Tickets[] = [
         id: '10',
         projectId: '2',
         name: "Animaciones UI",
-        status: Tickets_STATUSES.IN_PROGRESS,
+        status: Tickets_STATUSES.BACKLOG,
         priority: Tickets_PRIORITIES.LOW,
         responsible: "Valentina"
     },

@@ -8,7 +8,7 @@ describe("useTickets hook", () => {
     it("inicia con board correcto y lista vacía", () => {
         const { result } = renderHook(() => useTickets());
 
-        expect(result.current.board).toHaveLength(3);
+        expect(result.current.board).toHaveLength(4);
         expect(result.current.listTickets).toEqual(TicketsMockData);
     });
 

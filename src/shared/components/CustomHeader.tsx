@@ -18,12 +18,10 @@ export const CustomHeader = React.memo(function CustomHeader({
   const { user, isAuthenticated, login, logout } = useAuth();
   const { theme, toggleTheme } = useTheme();
 
-  // useCallback to memoize theme toggle handler
   const handleToggleTheme = useCallback(() => {
     toggleTheme();
   }, [toggleTheme]);
 
-  // useCallback to memoize logout handler
   const handleLogout = useCallback(() => {
     logout();
   }, [logout]);

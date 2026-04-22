@@ -10,7 +10,8 @@ interface PropsCard {
 const CardColors: Record<CardStyle, string> = {
   default: "#e8e8e8",
   primary: "#3a547e",
-  TODO: "#a7a7a7",
+  BACKLOG: "#a7a7a7",
+  TODO: "#3a547e",
   "IN-PROGRESS": "#0a3f8f",
   DONE: "#22c55e",
 };

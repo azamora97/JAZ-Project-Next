@@ -1,3 +1,6 @@
+// ✅ Client Component — usa hooks
+'use client';
+
 import { AuthAction, AuthState } from "../store/AuthContext";
 
 export const AuthReducer = (state: AuthState, action: AuthAction): AuthState => {
